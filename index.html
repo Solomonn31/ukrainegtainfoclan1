@@ -1,23 +1,20 @@
-Відмінно, ось інший шаблон для посібника адміністратора, який відрізняється від попереднього:
-
-```html
 <!DOCTYPE html>
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Посібник Адміністратора</title>
+    <title>Східна Україна - Посібник Адміністратора</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #34495e;
-            --accent-color: #e74c3c;
+            --primary-color: #1e3c2e;
+            --secondary-color: #2a523a;
+            --accent-color: #4CAF50;
             --text-color: #ecf0f1;
             --text-secondary: #bdc3c7;
             --border-color: #7f8c8d;
-            --background-light: #34495e;
-            --background-dark: #2c3e50;
+            --background-light: #388E3C;
+            --background-dark: #2E7D32;
         }
 
         body {
@@ -27,6 +24,16 @@
             margin: 0;
             padding: 0;
             line-height: 1.6;
+            background-image: url('https://via.placeholder.com/1920x1080/1e3c2e/ffffff?text=GTA+SA+Style');
+            background-size: cover;
+            background-attachment: fixed;
+            animation: backgroundAnimation 20s infinite linear;
+        }
+
+        @keyframes backgroundAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         header {
@@ -34,7 +41,13 @@
             color: var(--text-color);
             text-align: center;
             padding: 2rem 0;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            animation: headerAnimation 2s ease-in-out;
+        }
+
+        @keyframes headerAnimation {
+            0% { transform: translateY(-50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
         }
 
         .header-content {
@@ -49,18 +62,33 @@
             margin: 0;
             text-transform: uppercase;
             letter-spacing: 2px;
+            color: var(--accent-color);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: textShadowPulse 2s infinite alternate;
+        }
+
+        @keyframes textShadowPulse {
+            0% { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); }
+            100% { text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); }
         }
 
         .subheader-text {
             font-size: 1.1rem;
             max-width: 800px;
             margin: 10px auto 0;
+            color: var(--text-secondary);
         }
 
         nav {
             background-color: var(--secondary-color);
             padding: 10px 0;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+            animation: navAnimation 1.5s ease-in-out;
+        }
+
+        @keyframes navAnimation {
+            0% { transform: translateY(-30px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
         }
 
         nav ul {
@@ -89,6 +117,7 @@
         nav ul li a:hover {
             background-color: var(--accent-color);
             color: white;
+            transform: scale(1.1);
         }
 
         .container {
@@ -98,12 +127,18 @@
         }
 
         section {
-            background-color: var(--background-dark);
+            background-color: rgba(30, 60, 46, 0.9);
             padding: 25px;
             margin-bottom: 30px;
             border-radius: 6px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
             border: 1px solid var(--border-color);
+            animation: sectionAnimation 1.5s ease-in-out;
+        }
+
+        @keyframes sectionAnimation {
+            0% { transform: translateX(-50px); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
         }
 
         h2 {
@@ -142,8 +177,13 @@
             border-radius: 6px;
             padding: 20px;
             margin-bottom: 20px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
             border-left: 4px solid var(--accent-color);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
         }
 
         .card h4 {
@@ -164,7 +204,7 @@
             border-radius: 6px;
             padding: 15px;
             text-align: center;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease;
         }
 
@@ -186,50 +226,23 @@
             font-weight: 500;
         }
 
-        .rule-section {
-            margin-bottom: 30px;
-        }
-
-        .rule-card {
-            background-color: var(--background-light);
-            border-radius: 6px;
-            padding: 15px;
-            margin-bottom: 15px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .rule-card h4 {
-            margin-top: 0;
-            color: var(--accent-color);
-            font-size: 1.1rem;
-        }
-
-        .rule-card p {
-            margin: 5px 0;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
+        .social-links {
             margin: 20px 0;
+            text-align: center;
         }
 
-        table, th, td {
-            border: 1px solid var(--border-color);
+        .social-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+            transition: all 0.3s ease;
         }
 
-        th, td {
-            padding: 12px;
-            text-align: left;
-        }
-
-        th {
-            background-color: var(--accent-color);
+        .social-links a:hover {
             color: white;
-        }
-
-        tr:nth-child(even) {
-            background-color: rgba(46, 62, 80, 0.7);
+            text-decoration: underline;
+            transform: scale(1.1);
         }
 
         footer {
@@ -238,6 +251,12 @@
             text-align: center;
             padding: 20px 0;
             margin-top: 50px;
+            animation: footerAnimation 2s ease-in-out;
+        }
+
+        @keyframes footerAnimation {
+            0% { transform: translateY(50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
         }
 
         @media (max-width: 768px) {
@@ -262,7 +281,7 @@
 <body>
     <header>
         <div class="header-content">
-            <h1>Посібник Адміністратора</h1>
+            <h1>Східна Україна</h1>
             <p class="subheader-text">Цей посібник створено для допомоги адміністраторам у їхній роботі та наданні актуальної інформації.</p>
         </div>
     </header>
@@ -271,10 +290,6 @@
         <ul>
             <li><a href="#admin-team">Адміністративна Команда</a></li>
             <li><a href="#general-rules">Загальні Правила</a></li>
-            <li><a href="#kidnapping-rules">Правила Викрадень</a></li>
-            <li><a href="#terrorism-rules">Правила Терактів</a></li>
-            <li><a href="#supply-rules">Правила Постачання</a></li>
-            <li><a href="#clan-wars">Війни Кланів</a></li>
         </ul>
     </nav>
 
@@ -283,16 +298,16 @@
             <h2>Адміністративна Команда</h2>
 
             <div class="card">
-                <h3>Головні Адміністратори</h3>
+                <h3>Головна Адміністрація</h3>
                 <div class="admin-grid">
                     <div class="admin-card">
                         <img src="https://via.placeholder.com/80" alt="Аватар">
-                        <p>Іван Петров</p>
+                        <p>Валерія Савченко</p>
                         <p>Головний Адміністратор</p>
                     </div>
                     <div class="admin-card">
                         <img src="https://via.placeholder.com/80" alt="Аватар">
-                        <p>Марія Сидоренко</p>
+                        <p>Серго Голд</p>
                         <p>Заступник Головного Адміністратора</p>
                     </div>
                 </div>
@@ -303,15 +318,18 @@
                 <div class="admin-grid">
                     <div class="admin-card">
                         <img src="https://via.placeholder.com/80" alt="Аватар">
-                        <p>Олексій Коваленко</p>
+                        <p>ГС НЕОФ</p>
+                        <p>Данієль Хомс</p>
                     </div>
                     <div class="admin-card">
                         <img src="https://via.placeholder.com/80" alt="Аватар">
-                        <p>Ольга Іваненко</p>
+                        <p>ГС ДЕРЖ</p>
+                        <p>Нікіта Карпенко</p>
                     </div>
                     <div class="admin-card">
                         <img src="https://via.placeholder.com/80" alt="Аватар">
-                        <p>Андрій Шевельов</p>
+                        <p>ЗГС ДЕРЖ</p>
+                        <p>Вікторія Кизима</p>
                     </div>
                 </div>
             </div>
@@ -322,109 +340,38 @@
 
             <div class="rule-section">
                 <h3>Основні Правила</h3>
-                <div class="rule-card">
+                <div class="card">
                     <h4>Правило 1</h4>
                     <p>Адміністратори повинні бути ввічливими та професійними у спілкуванні з гравцями.</p>
                 </div>
-                <div class="rule-card">
+                <div class="card">
                     <h4>Правило 2</h4>
                     <p>Усі рішення адміністраторів повинні бути обґрунтовані та справедливі.</p>
                 </div>
-                <div class="rule-card">
+                <div class="card">
                     <h4>Правило 3</h4>
                     <p>Адміністратори повинні дотримуватися конфіденційності інформації про гравців.</p>
                 </div>
             </div>
         </section>
 
-        <section id="kidnapping-rules">
-            <h2>Правила Викрадень</h2>
-
-            <div class="rule-section">
-                <h3>Основні Правила Викрадень</h3>
-                <ol>
-                    <li>Викрадення повинні бути обґрунтовані рольовою грою.</li>
-                    <li>Заборонено викрадати гравців у безпечних зонах.</li>
-                    <li>Викрадачі повинні мати чіткий план дій.</li>
-                    <li>Викрадення повинні бути узгоджені з адміністрацією.</li>
-                </ol>
-            </div>
-
-            <div class="rule-section">
-                <h3>Правила для Викрадачів</h3>
-                <ol>
-                    <li>Викрадачі повинні мати маски.</li>
-                    <li>Викрадачі повинні мати вагомі причини для викрадення.</li>
-                    <li>Викрадачі повинні дотримуватися встановлених сум викупу.</li>
-                </ol>
-            </div>
-        </section>
-
-        <section id="terrorism-rules">
-            <h2>Правила Терактів</h2>
-
-            <div class="rule-section">
-                <h3>Основні Правила Терактів</h3>
-                <ol>
-                    <li>Теракти повинні бути узгоджені з адміністрацією.</li>
-                    <li>Теракти повинні мати чіткий план дій.</li>
-                    <li>Теракти повинні бути обґрунтовані рольовою грою.</li>
-                </ol>
-            </div>
-
-            <div class="rule-section">
-                <h3>Правила для Терактів</h3>
-                <ol>
-                    <li>Теракти повинні мати мінімум 10 учасників.</li>
-                    <li>Теракти повинні мати чіткі вимоги.</li>
-                    <li>Теракти повинні бути проведені у встановлений час.</li>
-                </ol>
-            </div>
-        </section>
-
-        <section id="supply-rules">
-            <h2>Правила Постачання</h2>
-
-            <div class="rule-section">
-                <h3>Основні Правила Постачання</h3>
-                <ol>
-                    <li>Постачання повинні бути узгоджені з адміністрацією.</li>
-                    <li>Постачання повинні мати чіткий маршрут.</li>
-                    <li>Постачання повинні бути захищені.</li>
-                </ol>
-            </div>
-
-            <div class="rule-section">
-                <h3>Правила для Постачання</h3>
-                <ol>
-                    <li>Постачання повинні мати мінімум 5 охоронців.</li>
-                    <li>Постачання повинні бути проведені у встановлений час.</li>
-                    <li>Постачання повинні мати чіткі інструкції.</li>
-                </ol>
-            </div>
-        </section>
-
-        <section id="clan-wars">
-            <h2>Війни Кланів</h2>
-
-            <div class="rule-section">
-                <h3>Основні Правила Війни Кланів</h3>
-                <ol>
-                    <li>Війни кланів повинні бути узгоджені з адміністрацією.</li>
-                    <li>Війни кланів повинні мати чіткі причини.</li>
-                    <li>Війни кланів повинні бути обґрунтовані рольовою грою.</li>
-                </ol>
-            </div>
-
-            <div class="rule-section">
-                <h3>Правила для Війни Кланів</h3>
-                <ol>
-                    <li>Війни кланів повинні мати мінімум 10 учасників з кожного боку.</li>
-                    <li>Війни кланів повинні мати чіткі умови перемоги.</li>
-                    <li>Війни кланів повинні бути проведені у встановлений час.</li>
-                </ol>
-            </div>
-        </section>
+        <div class="social-links">
+            <h2>Наші соціальні мережі</h2>
+            <p>
+                <a href="https://www.youtube.com/@ukrainegta/featured">YouTube</a>
+                <a href="https://ukraine-gta.com.ua/uk/">Сайт UKRAINE GTA</a>
+                <a href="https://www.instagram.com/ukraine_gta/">Instagram UKRAINE GTA</a>
+                <a href="https://t.me/ukraine_gta">Telegram UKRAINE GTA</a>
+                <a href="https://t.me/devnews_ukrainegta">Telegram Майстерня Розробників</a>
+                <a href="https://discord.gg/ukrainegta">Discord UKRAINE GTA</a>
+                <a href="https://ukraine-gta5.com.ua/">Сайт UKRAINE GTA 5</a>
+                <a href="https://www.instagram.com/ukraine_gta_5/">Instagram UKRAINE GTA 5</a>
+                <a href="https://t.me/ukraine_gta_5">Telegram UKRAINE GTA 5</a>
+                <a href="https://discord.gg/ukraine-gta-5">Discord UKRAINE GTA 5</a>
+                <a href="https://www.tiktok.com/@gta_ukraine_03">TikTok 03 сервера</a>
+                <a href="https://discord.gg/rVdSgTqw">Discord 03 сервера</a>
+            </p>
+        </div>
     </div>
 
     <footer>
@@ -432,5 +379,4 @@
     </footer>
 </body>
 </html>
-```
 
