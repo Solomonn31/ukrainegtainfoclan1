@@ -1,0 +1,436 @@
+Відмінно, ось інший шаблон для посібника адміністратора, який відрізняється від попереднього:
+
+```html
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Посібник Адміністратора</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #e74c3c;
+            --text-color: #ecf0f1;
+            --text-secondary: #bdc3c7;
+            --border-color: #7f8c8d;
+            --background-light: #34495e;
+            --background-dark: #2c3e50;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--text-color);
+            text-align: center;
+            padding: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .subheader-text {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 10px auto 0;
+        }
+
+        nav {
+            background-color: var(--secondary-color);
+            padding: 10px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background-color: var(--background-dark);
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 6px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border-color);
+        }
+
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-color);
+            font-size: 1.4rem;
+            margin-top: 25px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+        }
+
+        p, ul, ol {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+
+        ul, ol {
+            padding-left: 25px;
+        }
+
+        ul li, ol li {
+            margin-bottom: 8px;
+        }
+
+        .card {
+            background-color: var(--background-light);
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .card h4 {
+            margin-top: 0;
+            color: var(--accent-color);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .admin-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .admin-card {
+            background-color: var(--background-light);
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .admin-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .admin-card img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+            border: 2px solid var(--accent-color);
+        }
+
+        .admin-card p {
+            margin: 5px 0 0;
+            font-weight: 500;
+        }
+
+        .rule-section {
+            margin-bottom: 30px;
+        }
+
+        .rule-card {
+            background-color: var(--background-light);
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .rule-card h4 {
+            margin-top: 0;
+            color: var(--accent-color);
+            font-size: 1.1rem;
+        }
+
+        .rule-card p {
+            margin: 5px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table, th, td {
+            border: 1px solid var(--border-color);
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: rgba(46, 62, 80, 0.7);
+        }
+
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--text-secondary);
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .subheader-text {
+                font-size: 1rem;
+            }
+
+            nav ul li {
+                margin: 5px 10px;
+            }
+
+            .admin-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Посібник Адміністратора</h1>
+            <p class="subheader-text">Цей посібник створено для допомоги адміністраторам у їхній роботі та наданні актуальної інформації.</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#admin-team">Адміністративна Команда</a></li>
+            <li><a href="#general-rules">Загальні Правила</a></li>
+            <li><a href="#kidnapping-rules">Правила Викрадень</a></li>
+            <li><a href="#terrorism-rules">Правила Терактів</a></li>
+            <li><a href="#supply-rules">Правила Постачання</a></li>
+            <li><a href="#clan-wars">Війни Кланів</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="admin-team">
+            <h2>Адміністративна Команда</h2>
+
+            <div class="card">
+                <h3>Головні Адміністратори</h3>
+                <div class="admin-grid">
+                    <div class="admin-card">
+                        <img src="https://via.placeholder.com/80" alt="Аватар">
+                        <p>Іван Петров</p>
+                        <p>Головний Адміністратор</p>
+                    </div>
+                    <div class="admin-card">
+                        <img src="https://via.placeholder.com/80" alt="Аватар">
+                        <p>Марія Сидоренко</p>
+                        <p>Заступник Головного Адміністратора</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Старші Адміністратори</h3>
+                <div class="admin-grid">
+                    <div class="admin-card">
+                        <img src="https://via.placeholder.com/80" alt="Аватар">
+                        <p>Олексій Коваленко</p>
+                    </div>
+                    <div class="admin-card">
+                        <img src="https://via.placeholder.com/80" alt="Аватар">
+                        <p>Ольга Іваненко</p>
+                    </div>
+                    <div class="admin-card">
+                        <img src="https://via.placeholder.com/80" alt="Аватар">
+                        <p>Андрій Шевельов</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="general-rules">
+            <h2>Загальні Правила</h2>
+
+            <div class="rule-section">
+                <h3>Основні Правила</h3>
+                <div class="rule-card">
+                    <h4>Правило 1</h4>
+                    <p>Адміністратори повинні бути ввічливими та професійними у спілкуванні з гравцями.</p>
+                </div>
+                <div class="rule-card">
+                    <h4>Правило 2</h4>
+                    <p>Усі рішення адміністраторів повинні бути обґрунтовані та справедливі.</p>
+                </div>
+                <div class="rule-card">
+                    <h4>Правило 3</h4>
+                    <p>Адміністратори повинні дотримуватися конфіденційності інформації про гравців.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="kidnapping-rules">
+            <h2>Правила Викрадень</h2>
+
+            <div class="rule-section">
+                <h3>Основні Правила Викрадень</h3>
+                <ol>
+                    <li>Викрадення повинні бути обґрунтовані рольовою грою.</li>
+                    <li>Заборонено викрадати гравців у безпечних зонах.</li>
+                    <li>Викрадачі повинні мати чіткий план дій.</li>
+                    <li>Викрадення повинні бути узгоджені з адміністрацією.</li>
+                </ol>
+            </div>
+
+            <div class="rule-section">
+                <h3>Правила для Викрадачів</h3>
+                <ol>
+                    <li>Викрадачі повинні мати маски.</li>
+                    <li>Викрадачі повинні мати вагомі причини для викрадення.</li>
+                    <li>Викрадачі повинні дотримуватися встановлених сум викупу.</li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="terrorism-rules">
+            <h2>Правила Терактів</h2>
+
+            <div class="rule-section">
+                <h3>Основні Правила Терактів</h3>
+                <ol>
+                    <li>Теракти повинні бути узгоджені з адміністрацією.</li>
+                    <li>Теракти повинні мати чіткий план дій.</li>
+                    <li>Теракти повинні бути обґрунтовані рольовою грою.</li>
+                </ol>
+            </div>
+
+            <div class="rule-section">
+                <h3>Правила для Терактів</h3>
+                <ol>
+                    <li>Теракти повинні мати мінімум 10 учасників.</li>
+                    <li>Теракти повинні мати чіткі вимоги.</li>
+                    <li>Теракти повинні бути проведені у встановлений час.</li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="supply-rules">
+            <h2>Правила Постачання</h2>
+
+            <div class="rule-section">
+                <h3>Основні Правила Постачання</h3>
+                <ol>
+                    <li>Постачання повинні бути узгоджені з адміністрацією.</li>
+                    <li>Постачання повинні мати чіткий маршрут.</li>
+                    <li>Постачання повинні бути захищені.</li>
+                </ol>
+            </div>
+
+            <div class="rule-section">
+                <h3>Правила для Постачання</h3>
+                <ol>
+                    <li>Постачання повинні мати мінімум 5 охоронців.</li>
+                    <li>Постачання повинні бути проведені у встановлений час.</li>
+                    <li>Постачання повинні мати чіткі інструкції.</li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="clan-wars">
+            <h2>Війни Кланів</h2>
+
+            <div class="rule-section">
+                <h3>Основні Правила Війни Кланів</h3>
+                <ol>
+                    <li>Війни кланів повинні бути узгоджені з адміністрацією.</li>
+                    <li>Війни кланів повинні мати чіткі причини.</li>
+                    <li>Війни кланів повинні бути обґрунтовані рольовою грою.</li>
+                </ol>
+            </div>
+
+            <div class="rule-section">
+                <h3>Правила для Війни Кланів</h3>
+                <ol>
+                    <li>Війни кланів повинні мати мінімум 10 учасників з кожного боку.</li>
+                    <li>Війни кланів повинні мати чіткі умови перемоги.</li>
+                    <li>Війни кланів повинні бути проведені у встановлений час.</li>
+                </ol>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2025 Посібник Адміністратора. Всі права захищені.</p>
+    </footer>
+</body>
+</html>
+```
+
